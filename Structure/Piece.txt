@@ -1,0 +1,17 @@
+class piece
+
+position valus,
+isdead variable
+
+default constructor
+parameterized constructor
+copy constructor
+
+kill piece method
+checkmove method
+print method
+get position method
+setposition method
+
+
+end class

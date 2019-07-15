@@ -1,0 +1,13 @@
+
+
+in check move -
+
+if position is beginning and moves 1 or 2 then okay
+if target  position is not empty and has opposite color then okay
+if target position is not empty and is in front then not okay
+cross kill
+enpassant (implemented later on)
+
+--
+
+
