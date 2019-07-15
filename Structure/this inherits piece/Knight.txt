@@ -1,0 +1,10 @@
+inherits Piece
+
+in check move-
+
+//L shape movement of this piece
+if not obtructed by any piece for two movements in any of four directions, move
+if not obstructed by any piece for one movement in left or right of the knight, move
+if obstructed by any opponent piece at final position, then kill
+
+--

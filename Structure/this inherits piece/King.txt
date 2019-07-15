@@ -1,0 +1,11 @@
+inherits piece
+
+in check move-
+
+if not obstructed by any piece, can move in any direction with one block movement only
+if obstructed by any piece in case check, can not move in that direction
+if obstructed by opponent piece, free to kill
+if checkmate by opponenet piece, game is over
+Castling
+
+--

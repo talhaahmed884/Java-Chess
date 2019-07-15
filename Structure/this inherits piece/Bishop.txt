@@ -1,0 +1,10 @@
+inherits piece
+
+in check move-
+
+
+if not obstructed by piece move diagonally in four directions on the same standing color with any number of movements
+can not move in any other color except the starting one
+if obstructed by opponent piece, free to kill
+
+--

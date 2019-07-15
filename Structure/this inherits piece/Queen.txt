@@ -1,0 +1,9 @@
+inherits piece
+
+in check move-
+
+
+if not obstructed by any piece, can move in any direction across ranks and files
+if obstructed by any opponent piece, free to kill
+
+--
