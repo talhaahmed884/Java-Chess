@@ -14,7 +14,7 @@ public class Bishop extends Piece
 	
 	public boolean checkMove(int rowarg, int colarg, Board board) 
 	{
-		if(color==0)		//for black pieces
+		if(color==0)		//for black pieces small b
 		{
 			if(rowarg>row && rowarg<=7)			//for forward movement
 			{
@@ -171,7 +171,7 @@ public class Bishop extends Piece
 				return false;
 			}
 		}
-		else if(color==1)		//for white pieces
+		else if(color==1)		//for white pieces large B
 		{
 			if(rowarg<row && rowarg>=0)		//for forward movement
 			{
