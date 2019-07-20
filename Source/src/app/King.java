@@ -1,5 +1,7 @@
 package app;
 
+import java.awt.Graphics;
+
 public class King  extends Piece
 {
 	protected boolean checkmate;
@@ -47,7 +49,7 @@ public class King  extends Piece
 			return false;
 		}
 	}	
-	public void drawPiece() 				//Functionality for drawing the pieces on canvas
+	public void drawPiece(Graphics g) 				//Functionality for drawing the pieces on canvas
 	{
 		if(this.isdead)
 		{
@@ -65,6 +67,24 @@ public class King  extends Piece
 		{
 			System.out.print(" ");		//in case of any errors
 		}	
+
+	}
+
+	public boolean isUnderCheck(Board board){
+		
+		for (int k = 0; k < 8; k++) {
+			for (int l = 0; l < 8; l++) {
+				if (board.pieces[k][l] != null) {
+					if (board.pieces[k][l].color != this.color) {
+						if (board.pieces[k][l].checkMove(this.row , this.col, board)) {
+							return true;
+						}
+					}
+				}
+			}
+		}
+										
+		return false;
 	}
 	
 }
