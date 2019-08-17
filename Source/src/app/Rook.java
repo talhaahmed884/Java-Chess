@@ -1,4 +1,6 @@
-package app;
+package app1;
+
+
 
 public class Rook extends Piece
 {
@@ -6,6 +8,12 @@ public class Rook extends Piece
 	public Rook(int rowarg, int colarg, int colorarg)
 	{
 		super(rowarg,colarg,colorarg);
+
+		if(colorarg == 0)
+        loadSprite(DEFAULTfp + ROOKfn[0]);
+        
+        else if(colorarg == 1)
+        loadSprite(DEFAULTfp + ROOKfn[1]);
 	}
 	
 	Rook(Rook obj)
@@ -15,9 +23,10 @@ public class Rook extends Piece
 	
 	public boolean checkMove(int rowarg, int colarg, Board board) 
 	{
+		
 		if(rowarg>row && colarg==col && rowarg<=7)		//for forward movement
 		{
-			int temp1=row;
+			int temp1=row+1;
 			for(;temp1<rowarg;temp1++)		//for checking the path
 			{
 				if(board.pieces[temp1][col]!=null)
@@ -44,7 +53,7 @@ public class Rook extends Piece
 		}
 		else if(rowarg<row && colarg==col && rowarg>=0)		//for backward movement
 		{
-			int temp1=row;
+			int temp1=row-1;
 			for(;temp1>rowarg;temp1--)		//for checking the path
 			{
 				if(board.pieces[temp1][col]!=null)
@@ -71,7 +80,7 @@ public class Rook extends Piece
 		}
 		else if(rowarg==row && colarg>col && colarg<=7)		//for right movement
 		{
-			int temp1=col;
+			int temp1=col+1;
 			for(;temp1<colarg;temp1++)		//for checking the path
 			{
 				if(board.pieces[row][temp1]!=null)
@@ -98,7 +107,7 @@ public class Rook extends Piece
 		}
 		else if(rowarg==row && colarg<col && colarg>=0)		//for left movement
 		{
-			int temp1=col;
+			int temp1=col-1;
 			for(;temp1>colarg;temp1--)		//for checking the path
 			{
 				if(board.pieces[row][temp1]!=null)
@@ -122,30 +131,12 @@ public class Rook extends Piece
 			{
 				return false;
 			}
+
 		}
 		else		//in case of values out of bounds of the board
 		{
 			return false;
 		}
 	}
-	
-	public void drawPiece()
-	{
-		if(this.isdead)
-		{
-			System.out.print(" - ");
-		}
-		else if(this.color==0)			//0 is for Black
-		{
-			System.out.print(" r ");
-		}
-		else if(this.color==1)			// 1 is for White
-		{
-			System.out.print(" R ");
-		}
-		else
-		{
-			System.out.print(" ");		//in case of any errors
-		}
-	}
+
 }

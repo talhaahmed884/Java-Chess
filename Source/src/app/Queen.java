@@ -1,37 +1,22 @@
-package app;
-
-import java.awt.Graphics;
+package app1;
 
 public class Queen extends Piece {
 
     Queen(int rowarg, int colarg, int colorarg)
     {
         super(rowarg, colarg, colorarg);    // PARAMETERIZED CONSTRUCTOR OF PIECE
-        loadSprites("/root/Desktop/Java/Chess/src/app/whitequeen.bmp", "/root/Desktop/Java/Chess/src/app/blackqueen.bmp");
-    }
+        
+        if(colorarg == 0)
+        loadSprite(DEFAULTfp + QUEENfn[0]);
+        
+        else if(colorarg == 1)
+        loadSprite(DEFAULTfp + QUEENfn[1]);
+     }
     Queen(Pawn obj)
     {
         super(obj);                     // COPY CONSTRUCTOR OF CLASS PIECE
     }
 
-
-    public void drawPiece(Graphics g){
-        
-        if(this.isdead){             // IF DEAD, PRINT "-"
-        //System.out.printf(" - "); 
-        }
-        else if(color == 0){         // IF BLACK
-        //System.out.printf(" p ");
-        spriteb.drawSprite(g);
-        }
-        else if(color == 1){          // IF WHITE
-        //System.out.printf(" \u01A5 "); 
-        spritew.drawSprite(g);
-        }
-        else{                        // TO PRINT NOTHING INSTEAD OF CRASHING IN CASE OF A BUG
-        System.out.printf("   ");
-        }
-    }
 
     public boolean checkMove(int rowarg, int colarg, Board board)
     {
@@ -44,7 +29,7 @@ public class Queen extends Piece {
         ///UPWARDS
         if(col == colarg && rowarg < row)
         {
-            for(int x = row + 1; x < rowarg; x++){
+            for(int x = row - 1; x > rowarg; x--){
                 if(board.pieces[x][col] != null) return false;
             }
             return true;
@@ -53,7 +38,7 @@ public class Queen extends Piece {
         //DOWNWARDS
         if(col == colarg && rowarg > row)
         {
-            for(int x = row - 1; x > rowarg; x--){
+            for(int x = row + 1; x < rowarg; x++){
                 if(board.pieces[x][col] != null) return false;
             }
             return true;
@@ -101,9 +86,9 @@ public class Queen extends Piece {
         }
 
         //DOWNLEFT
-        if(col > colarg && row > rowarg)
+        if(col > colarg && row < rowarg)
         {
-            for(int c = col - 1, r = row + 1; c > colarg && r > rowarg; r++, c--){
+            for(int c = col - 1, r = row + 1; c > colarg && r < rowarg; r++, c--){
                 if(board.pieces[r][c] != null) return false;
             }
             return true;
@@ -112,7 +97,7 @@ public class Queen extends Piece {
         //UPLEFT
         if(col > colarg && row > rowarg)
         {
-            for(int c = col - 1, r = row + 1; c > colarg && r > rowarg; r--, c--){
+            for(int c = col - 1, r = row - 1; c > colarg && r > rowarg; r--, c--){
                 if(board.pieces[r][c] != null) return false;
             }
             return true;

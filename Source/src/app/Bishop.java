@@ -1,10 +1,17 @@
-package app;
+package app1;
+
 
 public class Bishop extends Piece
 {	
 	public Bishop(int rowarg, int colarg, int colorarg) 
 	{
 		super(rowarg,colarg,colorarg);
+		
+		if(colorarg == 0)
+        loadSprite(DEFAULTfp + BISHOPfn[0]);
+        
+        else if(colorarg == 1)
+        loadSprite(DEFAULTfp + BISHOPfn[1]);
 	}
 	
 	Bishop(Bishop obj)
@@ -71,7 +78,7 @@ public class Bishop extends Piece
 							continue;
 						}
 					}
-					int temp3=row+1,temp4=col+1;
+					int temp3=row+1,temp4=col-1;
 					for(;temp3<rowarg && temp4>colarg;temp3++,temp4--)		//checking the path empty
 					{
 						if(board.pieces[row][col]==board.pieces[temp3][temp4])
@@ -193,23 +200,6 @@ public class Bishop extends Piece
 			return false;
 		}
 	}
-	public void drawPiece()
-	{
-		if(this.isdead)
-		{
-			System.out.print(" - ");
-		}
-		else if(this.color==0)			//0 is for Black
-		{
-			System.out.print(" b ");
-		}
-		else if(this.color==1)			// 1 is for White
-		{
-			System.out.print(" B ");
-		}
-		else
-		{
-			System.out.print(" ");		//in case of any errors
-		}
-	}
+	
+
 }
